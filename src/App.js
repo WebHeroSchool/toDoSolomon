@@ -2,23 +2,49 @@ import logo from './logo.svg';
 import './App.css';
 
 const flag = true;
-const count = 23;
+const count = 29;
+let num = count >= 30;
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img style={{
-          color: 'red'
-        }} src={logo} className="App-logo" alt="logo" />
+        <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <p>
+        <p style={{
+          color: "#d40101",
+          fontSize: 20 + 30
+        }}>
           (= Hello world! =)
         </p>
         <p>
+          {count}
+        </p>
+        <p>
+          {9999999999}
+        </p>
+        <p>
+          {9999999999 + 1}
+        </p>
+        <p>
           {flag ? 'Flag is true': 'Flag is false'}
+        </p>
+        <p>
+          {num ? 'num is true' : 'num is false'}
+        </p>
+        <p>
+          {undefined}
+        </p>
+        <p>
+          {null}
+        </p>
+        <p>
+          {false ? 'True' : 'False'}
+        </p>
+        <p>
+          {true ? 'True' : 'False'}
         </p>
         <a
           className="App-link"
