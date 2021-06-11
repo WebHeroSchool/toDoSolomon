@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import {countTwo, length} from "./numers";
 
 const flag = true;
 const count = 29;
@@ -12,6 +13,9 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <p>
+          {'count * length = ' + countTwo * length }
         </p>
         <p style={{
           color: "#d40101",
