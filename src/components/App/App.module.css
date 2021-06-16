@@ -5,21 +5,25 @@
   width: 300px;
 }
 
-.wrap__InputItem{
+.InputItem{
   font-family: "Prosto One";
   font-size: 12px;
   width: 300px;
 }
 
-.wrap__title {
+.title {
   font-family: "Prosto One";
 }
 
-.wrap__ItemList {
+.ItemList {
   font-family: "Prosto One";
 }
 
-.wrap__Footer {
+.Footer {
   font-family: "Prosto One";
   font-size: 12px;
+}
+
+.done {
+  color: #c4c4c4;
 }

@@ -1,7 +1,8 @@
 import React from "react";
+import styles from '../App/App.module.css'
 
 const Footer = ({count}) => (
-  <div className="wrap__Footer">Осталось выполнить: {count}</div>
+  <div className={styles.Footer}>Осталось выполнить: {count}</div>
 );
 
 export default Footer;
