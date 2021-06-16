@@ -6,13 +6,16 @@ import styles from './App.module.css';
 
 const items = [
   {
-    value: 'Передать в футер кол-во дел которые нужно выполнить!'
+    value: 'Передать в футер кол-во дел которые нужно выполнить!',
+    isDone: true,
   },
   {
-    value: 'Передать 3 дела в Item!'
+    value: 'Передать 3 дела в Item!',
+    isDone: false,
   },
   {
-    value: 'Запушить в репозиторий!'
+    value: 'Запушить в репозиторий!',
+    isDone: true,
   },
 ]
 
