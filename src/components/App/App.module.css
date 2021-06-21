@@ -2,17 +2,25 @@
 
 .wrap {
   margin: auto;
-  width: 300px;
+  width: 800px;
+}
+
+.content {
+  padding: 40px;
+  /*border: 15px solid #a06d6d;*/
+  box-shadow: -8px -8px 20px #2a333d, 10px 7px 20px #475462;
+  border-radius: 20px;
 }
 
 .InputItem{
   font-family: "Prosto One";
   font-size: 12px;
-  width: 300px;
+  width: 100%;
 }
 
 .title {
   font-family: "Prosto One";
+  margin: 0;
 }
 
 li {
@@ -26,6 +34,18 @@ li {
 .Footer {
   font-family: "Prosto One";
   font-size: 12px;
+}
+
+.button {
+  left: 37%;
+  font-family: "Prosto One";
+  font-size: 12px;
+  opacity: 50%;
+  transition: opacity 1s;
+}
+
+.button:hover{
+  opacity: 100%;
 }
 
 .done {
