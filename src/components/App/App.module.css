@@ -15,6 +15,10 @@
   font-family: "Prosto One";
 }
 
+li {
+  list-style-type: none;
+}
+
 .ItemList {
   font-family: "Prosto One";
 }
