@@ -7,14 +7,12 @@ import ButtonGroup from '@material-ui/core/ButtonGroup';
 const Footer = ({count}) => (
   <div className={styles.Footer}>Осталось выполнить: {count}
     <ButtonGroup variant="text" color="default">
-      <Button className={styles.buttonFilter}>Все</Button>
-      <Button className={styles.buttonFilter}>Активные</Button>
-      <Button className={styles.buttonFilter}>Выполненные</Button>
+      <Button>Все</Button>
+      <Button>Активные</Button>
+      <Button>Выполненные</Button>
     </ButtonGroup>
     <Button
-      variant="contained"
-      color="secondary"
-      className={styles.button}
+      color="default"
       startIcon={<DeleteIcon />}
     >
       Удалить выполненные
