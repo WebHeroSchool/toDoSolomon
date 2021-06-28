@@ -56,13 +56,21 @@ li {
 .button {
   font-family: "Prosto One";
   font-size: 8px;
-  opacity: 50%;
+  /*opacity: 50%;*/
   transition: opacity 1s;
 }
 
-.button:hover{
-  opacity: 100%;
-}
+/*.button:hover{*/
+/*  opacity: 100%;*/
+/*}*/
+
+/*.App_button__13d5p {*/
+/*  opacity: 50%;*/
+/*}*/
+
+/*.App_button__13d5p:hover {*/
+/*  opacity: 100%;*/
+/*}*/
 
 .done {
   color: #c4c4c4;
@@ -70,12 +78,4 @@ li {
 
 .MuiButton-root {
 
-}
-
-.App_button__13d5p {
-  opacity: 50%;
-}
-
-.App_button__13d5p:hover {
-  opacity: 100%;
 }
