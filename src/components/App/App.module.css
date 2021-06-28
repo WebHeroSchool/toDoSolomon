@@ -2,26 +2,67 @@
 
 .wrap {
   margin: auto;
-  width: 300px;
+  padding: 3%;
+  width: 1000px;
+}
+
+.content {
+  padding: 40px;
+  box-shadow: -8px -8px 20px #2a333d, 10px 7px 20px #475462;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .InputItem{
   font-family: "Prosto One";
   font-size: 12px;
-  width: 300px;
+  width: 100%;
 }
 
 .title {
   font-family: "Prosto One";
+  margin: 0;
+  padding: 4% 0 4% 0;
+}
+
+li {
+  list-style-type: none;
 }
 
 .ItemList {
   font-family: "Prosto One";
+  display: flex;
+  justify-content: space-between;
+  padding: 2% 0 1% 0;
+}
+
+.delete {
+  justify-content: space-between;
+  flex: 100;
 }
 
 .Footer {
   font-family: "Prosto One";
-  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.buttonFilter {
+  font-family: "Prosto One";
+}
+
+.button {
+  /*left: 37%;*/
+  font-family: "Prosto One";
+  font-size: 8px;
+  opacity: 50%;
+  transition: opacity 1s;
+}
+
+.button:hover{
+  opacity: 100%;
 }
 
 .done {

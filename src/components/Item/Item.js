@@ -1,15 +1,23 @@
 import React from "react";
 import classNames from "classnames";
 import styles from '../App/App.module.css'
+import Checkbox from "@material-ui/core/Checkbox";
+import DeleteIcon from '@material-ui/icons/Delete';
+import IconButton from '@material-ui/core/IconButton';
 
 const Item = ({value, isDone}) => (<span className={
   classNames({
     [styles.ItemList]: true,
-    [styles.item]: true,
     [styles.done]: isDone
   })
 }>
-  {value}
+  <span>
+    <Checkbox />
+    {value}
+  </span>
+  <IconButton className={styles.delete} aria-label="delete" >
+    <DeleteIcon />
+  </IconButton>
 </span>);
 
 export default Item;
