@@ -12,8 +12,7 @@ const Footer = ({count}) => (
       <Button className={styles.buttonFilter}>Выполненные</Button>
     </ButtonGroup>
     <Button
-      variant="contained"
-      color="secondary"
+      color="default"
       className={styles.button}
       startIcon={<DeleteIcon />}
     >
