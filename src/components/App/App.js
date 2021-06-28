@@ -3,7 +3,6 @@ import ItemList from "../ItemList/ItemList";
 import InputItem from "../InputItem/InputItem";
 import Footer from "../Footer/Footer";
 import styles from './App.module.css';
-import classNames from "classnames"
 
 class App extends React.Component {
   render() {
