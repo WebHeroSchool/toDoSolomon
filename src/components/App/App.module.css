@@ -54,7 +54,6 @@ li {
 }
 
 .button {
-  /*left: 37%;*/
   font-family: "Prosto One";
   font-size: 8px;
   opacity: 50%;
@@ -67,4 +66,16 @@ li {
 
 .done {
   color: #c4c4c4;
+}
+
+.MuiButton-root {
+
+}
+
+.App_button__13d5p {
+  opacity: 50%;
+}
+
+.App_button__13d5p:hover {
+  opacity: 100%;
 }
