@@ -24,15 +24,18 @@ class App extends React.Component {
         isDone: false,
       },
     ]
+  };
 
-  }
+  //Стрелочная ф-ция не теряет контекст, поэтому будем использовать ее.
+  onClickDone = isDone => console.log(isDone);
+
   render() {
     return (
       <div className={styles.wrap}>
         <div className={styles.content}>
           <h1 className={styles.title}>Важные дела:</h1>
           <InputItem/>
-          <ItemList items={this.state.items}/>
+          <ItemList items={this.state.items} onClickDone={this.onClickDone}/>
           <Footer count={this.state.items.length}/>
         </div>
       </div>
