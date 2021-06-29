@@ -50,5 +50,6 @@ li {
 }
 
 .done {
-  color: #c4c4c4;
+  color: #8c8888;
+  text-decoration: line-through;
 }
