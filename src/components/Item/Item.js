@@ -5,17 +5,17 @@ import Checkbox from "@material-ui/core/Checkbox";
 import DeleteIcon from '@material-ui/icons/Delete';
 import IconButton from '@material-ui/core/IconButton';
 
-const Item = ({value, isDone, onClickDone}) => (<span className={
+const Item = ({value, isDone, onClickDone, id}) => (<span className={
   classNames({
     [styles.ItemList]: true,
     [styles.done]: isDone
   })
 }>
-  <span onClick={() => onClickDone(isDone)}>
+  <span>
     <Checkbox
       checked={isDone}
       tabIndex={-1}
-      onClick={() => onClickDone(isDone)}
+      onClick={() => onClickDone(id)}
     />
     {value}
   </span>
