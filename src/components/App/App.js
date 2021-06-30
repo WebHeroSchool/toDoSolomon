@@ -5,62 +5,56 @@ import Footer from "../Footer/Footer";
 import styles from './App.module.css';
 
 class App extends React.Component {
-  render() {
-    const items = [
-    {
-      value: 'Передать в футер кол-во дел которые нужно выполнить!',
-      isDone: true,
-    },
-    {
-      value: 'Передать 3 дела в Item!',
-      isDone: false,
-    },
-    {
-      value: 'Запушить в репозиторий!',
-      isDone: true,
-    },
-  ]
+  state = {
+    items: [
+      {
+        value: 'Передать в футер кол-во дел которые нужно выполнить!',
+        isDone: true,
+        id: 1,
+      },
+      {
+        value: 'Передать 3 дела в Item!',
+        isDone: false,
+        id: 2,
+      },
+      {
+        value: 'Запушить в репозиторий!',
+        isDone: true,
+        id: 3,
+      },
+      {
+        value: 'Дополнительный!',
+        isDone: false,
+        id: 4,
+      },
+    ],
+  };
 
-  return (
-    <div className={styles.wrap}>
-      <div className={styles.content}>
-        <h1 className={styles.title}>Важные дела:</h1>
-        <InputItem/>
-        <ItemList items={items}/>
-        <Footer count={3}/>
+  //Стрелочная ф-ция не теряет контекст, поэтому будем использовать ее.
+  onClickDone = id => {
+    const newItemList = this.state.items.map(item => {
+      const newItem = { ...item };
+      if (item.id === id) {
+        newItem.isDone = !item.isDone;
+      }
+      return newItem;
+    });
+
+    this.setState({ items: newItemList });
+  };
+
+  render() {
+    return (
+      <div className={styles.wrap}>
+        <div className={styles.content}>
+          <h1 className={styles.title}>Важные дела:</h1>
+          <InputItem/>
+          <ItemList items={this.state.items} onClickDone={this.onClickDone}/>
+          <Footer count={this.state.items.length}/>
+        </div>
       </div>
-    </div>
-  )
+    )
   }
 }
-
-// const App = () => {
-//   const items = [
-//     {
-//       value: 'Передать в футер кол-во дел которые нужно выполнить!',
-//       isDone: true,
-//     },
-//     {
-//       value: 'Передать 3 дела в Item!',
-//       isDone: false,
-//     },
-//     {
-//       value: 'Запушить в репозиторий!',
-//       isDone: true,
-//     },
-//   ]
-//
-//   return (
-//     <div className={styles.wrap}>
-//       <div className={styles.content}>
-//         <h1 className={styles.title}>Важные дела:</h1>
-//         <InputItem/>
-//         <ItemList items={items}/>
-//         <Footer count={3}/>
-//       </div>
-//     </div>
-//   )
-//
-// }
 
 export default App;
