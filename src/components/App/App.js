@@ -28,6 +28,7 @@ class App extends React.Component {
         id: 4,
       },
     ],
+    // count: 6,
   };
 
   //Стрелочная ф-ция не теряет контекст, поэтому будем использовать ее.
@@ -43,14 +44,49 @@ class App extends React.Component {
     this.setState({ items: newItemList });
   };
 
+  onClickDelete = id => {
+    const newItemList = this.state.items.filter(item => item.id !== id);
+    this.setState({ items: newItemList });
+  };
+
+  onClickDeleteAllTrue = id => {
+    const newItemList = this.state.items.filter(item => item.isDone === false);
+    this.setState({ items: newItemList });
+  }
+
+  onClickFilterAll = id => {
+    const newItemList = this.state.items.filter(item => item.isDone === false & true);
+    this.setState({ items: newItemList });
+  }
+
+  onClickFilterFalse = id => {
+    const newItemList = this.state.items.filter(item => item.isDone === false);
+    this.setState({ items: newItemList });
+  }
+
+  onClickFilterTrue = id => {
+    const newItemList = this.state.items.filter(item => item.isDone === true);
+    this.setState({ items: newItemList });
+  }
+
   render() {
     return (
       <div className={styles.wrap}>
         <div className={styles.content}>
           <h1 className={styles.title}>Важные дела:</h1>
           <InputItem/>
-          <ItemList items={this.state.items} onClickDone={this.onClickDone}/>
-          <Footer count={this.state.items.length}/>
+          <ItemList
+            items={this.state.items}
+            onClickDone={this.onClickDone}
+            onClickDelete={this.onClickDelete}
+          />
+          <Footer
+            count={this.state.items.length}
+            onClickDeleteAllTrue={this.onClickDeleteAllTrue}
+            onClickFilterAll={this.onClickFilterAll}
+            onClickFilterFalse={this.onClickFilterFalse}
+            onClickFilterTrue={this.onClickFilterTrue}
+          />
         </div>
       </div>
     )
