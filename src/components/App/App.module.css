@@ -14,10 +14,25 @@
   flex-direction: column;
 }
 
+.Input {
+  display: flex;
+  align-items: flex-end;
+}
+
 .InputItem{
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   font-size: 12px;
-  width: 100%;
+  width: 86%;
+}
+
+.space {
+  width: 2%;
+}
+
+.InputButton{
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 12px;
+  width: 12%;
 }
 
 .title {
