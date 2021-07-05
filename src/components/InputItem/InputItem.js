@@ -32,7 +32,7 @@ class InputItem extends React.Component{
           label="Добавить задание"
           className={styles.InputItem}
           value={this.state.inputValue}
-          onChange={e => this.setState({inputValue: e.target.value.toUpperCase()})}
+          onChange={event => this.setState({inputValue: event.target.value.toUpperCase()})}
           error={this.state.inputError}
           />
           {(this.state.inputError) && <div className={styles.Error}>Необходимо ввести текст</div>}
@@ -42,6 +42,11 @@ class InputItem extends React.Component{
           color="primary"
           className={styles.InputButton}
           onClick={this.onButtonClick}
+          // disabled={
+          //   this.state.inputValue.length>0
+          //     ? false
+          //     : true
+          // }
         >
           добавить
         </Button>
