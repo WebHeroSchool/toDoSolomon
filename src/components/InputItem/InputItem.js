@@ -12,27 +12,31 @@ class InputItem extends React.Component{
   onButtonClick = () => {
     this.setState({
       inputValue: '',
+      inputError: false
     });
 
     this.state.inputValue !== ''
-      ? this.state.onClickAdd(this.state.inputValue)
-      : this.state.inputError = true
+      ? this.props.onClickAdd(this.state.inputValue)
+      : this.setState({
+        inputError: true,
+      });
   }
 
   render() {
-    const { onClickAdd } = this.props;
 
     return (
       <div className={styles.Input}>
-        <TextField
+        <div className={styles.InputBox}>
+          <TextField
           id="standard-basic"
           label="Добавить задание"
           className={styles.InputItem}
           value={this.state.inputValue}
-          onChange={e => this.setState({inputValue: e.target.value})}
+          onChange={e => this.setState({inputValue: e.target.value.toUpperCase()})}
           error={this.state.inputError}
-        />
-        <div className={styles.space}> </div>
+          />
+          {(this.state.inputError) && <div className={styles.Error}>Необходимо ввести текст</div>}
+        </div>
         <Button
           variant="outlined"
           color="primary"

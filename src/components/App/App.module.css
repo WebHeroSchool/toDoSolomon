@@ -14,6 +14,11 @@
   flex-direction: column;
 }
 
+.InputBox {
+  width: 100%;
+  position: relative;
+}
+
 .Input {
   display: flex;
   align-items: flex-end;
@@ -22,11 +27,14 @@
 .InputItem{
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   font-size: 12px;
-  width: 86%;
+  width: 96%;
 }
 
-.space {
-  width: 2%;
+.Error {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  position: absolute;
+  padding-top: 5px;
+  color: #f62727;
 }
 
 .InputButton{
