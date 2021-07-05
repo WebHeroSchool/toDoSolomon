@@ -28,8 +28,20 @@ class App extends React.Component {
         id: 4,
       },
     ],
-    // count: 6,
+    count: 4,
   };
+
+  onClickAdd = value => this.setState(state => ({
+    items: [
+      ...state.items,
+      {
+        value,
+        isDone: false,
+        id: state.count + 1,
+      }
+    ],
+    count: state.count + 1,
+  }))
 
   //Стрелочная ф-ция не теряет контекст, поэтому будем использовать ее.
   onClickDone = id => {
@@ -44,29 +56,20 @@ class App extends React.Component {
     this.setState({ items: newItemList });
   };
 
-  onClickDelete = id => {
-    const newItemList = this.state.items.filter(item => item.id !== id);
-    this.setState({ items: newItemList });
-  };
+  onClickDelete = id => this.setState(state => ({ items: state.items.filter(item => item.id !== id)}));
 
-  onClickDeleteAllTrue = id => {
-    const newItemList = this.state.items.filter(item => item.isDone === false);
-    this.setState({ items: newItemList });
-  }
+  onClickDeleteAllTrue = id => this.setState(state => ({items: state.items.filter(item => item.isDone === false)}));
 
   onClickFilterAll = id => {
-    const newItemList = this.state.items.filter(item => item.isDone === false & true);
-    this.setState({ items: newItemList });
+
   }
 
   onClickFilterFalse = id => {
-    const newItemList = this.state.items.filter(item => item.isDone === false);
-    this.setState({ items: newItemList });
+
   }
 
   onClickFilterTrue = id => {
-    const newItemList = this.state.items.filter(item => item.isDone === true);
-    this.setState({ items: newItemList });
+
   }
 
   render() {
@@ -74,7 +77,9 @@ class App extends React.Component {
       <div className={styles.wrap}>
         <div className={styles.content}>
           <h1 className={styles.title}>Важные дела:</h1>
-          <InputItem/>
+          <InputItem
+            onClickAdd={this.onClickAdd}
+          />
           <ItemList
             items={this.state.items}
             onClickDone={this.onClickDone}

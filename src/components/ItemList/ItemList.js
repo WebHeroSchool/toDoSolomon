@@ -4,7 +4,7 @@ import Divider from '@material-ui/core/Divider';
 
 const ItemList = ({items, onClickDone, onClickDelete}) => (
   <ul>
-    {items.map(item =><li key={item.value}>
+    {items.map(item =><li key={item.id}>
       <Item
         value={item.value}
         isDone={item.isDone}
