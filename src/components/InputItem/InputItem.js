@@ -6,6 +6,7 @@ import Button from '@material-ui/core/Button';
 class InputItem extends React.Component{
   state = {
     inputValue: '',
+    inputError: false,
   };
 
   onButtonClick = () => {
@@ -15,8 +16,7 @@ class InputItem extends React.Component{
 
     this.state.inputValue !== ''
       ? this.props.onClickAdd(this.state.inputValue)
-      : console.log('error')
-      // : <TextField error id="filled-error" label="Error" defaultValue="Hello World" variant="filled" />
+      : {inputError: true}
   }
 
   render() {
@@ -30,6 +30,7 @@ class InputItem extends React.Component{
           className={styles.InputItem}
           value={this.state.inputValue}
           onChange={e => this.setState({inputValue: e.target.value})}
+          error={this.state.inputError}
         />
         <div className={styles.space}> </div>
         <Button
