@@ -4,7 +4,8 @@ import Divider from '@material-ui/core/Divider';
 
 const ItemList = ({items, onClickDone, onClickDelete}) => (
   <ul>
-    {items.map(item =><li key={item.id}>
+    {items.map(item =>
+        <li key={item.id}>
       <Item
         value={item.value}
         isDone={item.isDone}
@@ -17,5 +18,15 @@ const ItemList = ({items, onClickDone, onClickDelete}) => (
     )}
   </ul>
 )
+
+ItemList.defaultProps = {
+  items: [
+    {
+      value: 'Нет никаких дел',
+      isDone: true,
+      id: 0,
+    }
+  ]
+}
 
 export default ItemList;

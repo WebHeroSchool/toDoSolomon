@@ -22,4 +22,8 @@ const Footer = ({ count, onClickDeleteAllTrue, onClickFilterAll, onClickFilterFa
   </div>
 );
 
+Footer.defaultProps = {
+  count: 0
+};
+
 export default Footer;
