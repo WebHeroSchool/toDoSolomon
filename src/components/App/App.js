@@ -81,12 +81,12 @@ class App extends React.Component {
             onClickAdd={this.onClickAdd}
           />
           <ItemList
-            items={this.state.items}
+            // items={this.state.items}
             onClickDone={this.onClickDone}
             onClickDelete={this.onClickDelete}
           />
           <Footer
-            count={this.state.items.length}
+            // count={this.state.items.length}
             onClickDeleteAllTrue={this.onClickDeleteAllTrue}
             onClickFilterAll={this.onClickFilterAll}
             onClickFilterFalse={this.onClickFilterFalse}
