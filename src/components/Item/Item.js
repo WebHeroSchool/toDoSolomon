@@ -5,12 +5,27 @@ import Checkbox from "@material-ui/core/Checkbox";
 import DeleteIcon from '@material-ui/icons/Delete';
 import IconButton from '@material-ui/core/IconButton';
 
-const Item = ({value, isDone, onClickDone, id, onClickDelete}) => (<span className={
-  classNames({
-    [styles.ItemList]: true,
-    [styles.done]: isDone
-  })
-}>
+class Item extends React.Component {
+  componentDidMount() {
+    console.log('componentDidMount')
+  }
+
+  componentDidUpdate() {
+    console.log('componentDidUpdate')
+  }
+
+  componentWillUnmount() {
+    console.log('componentWillUnmount')
+  }
+
+  render() {
+    const {value, isDone, onClickDone, id, onClickDelete} = this.props;
+    return <span className={
+      classNames({
+        [styles.ItemList]: true,
+        [styles.done]: isDone
+      })
+    }>
   <span>
     <Checkbox
       checked={isDone}
@@ -26,6 +41,7 @@ const Item = ({value, isDone, onClickDone, id, onClickDelete}) => (<span classNa
   >
     <DeleteIcon />
   </IconButton>
-</span>);
+</span>}
+}
 
 export default Item;
