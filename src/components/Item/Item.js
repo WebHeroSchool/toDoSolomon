@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import classNames from "classnames";
 import styles from '../App/App.module.css'
 import Checkbox from "@material-ui/core/Checkbox";
@@ -38,6 +39,14 @@ class Item extends React.Component {
     <DeleteIcon />
   </IconButton>
 </span>}
+}
+
+Item.propTypes = {
+  value: PropTypes.string.isRequired,
+  isDone: PropTypes.bool.isRequired,
+  id: PropTypes.number.isRequired,
+  onClickDone: PropTypes.func.isRequired,
+  onClickDelete: PropTypes.func.isRequired,
 }
 
 export default Item;
