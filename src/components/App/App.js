@@ -1,11 +1,11 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import ItemList from "../ItemList/ItemList";
 import InputItem from "../InputItem/InputItem";
 import Footer from "../Footer/Footer";
 import styles from './App.module.css';
 
-class App extends React.Component {
-  state = {
+const App = () => {
+  const initialState = {
     items: [
       {
         value: 'Передать в футер кол-во дел которые нужно выполнить!',
@@ -31,71 +31,86 @@ class App extends React.Component {
     count: 4,
   };
 
-  onClickAdd = value => this.setState(state => ({
-    items: [
-      ...state.items,
+  const [items, setItems] = useState(initialState.items);
+  const [count, setCount] = useState(initialState.count);
+
+  useEffect(() => {
+    console.log('update')
+  });
+
+  useEffect(() => {
+    console.log('mount')
+  }, [items]);
+
+  //Стрелочная ф-ция не теряет контекст, поэтому будем использовать ее.
+  const onClickDone = (id) => {
+    const newItems = items.map(item => {
+      const newItem = {...item};
+      if (newItem.id === id) {
+        newItem.isDone = !newItem.isDone;
+      }
+      return newItem
+    });
+    setItems(newItems)
+  }
+
+  const onClickDelete = (id) => {
+    const newItems = items.filter(item => item.id !== id);
+    setItems(newItems);
+  };
+
+  const onClickAdd = (value) => {
+    const newItems = [
+      ...items,
       {
         value,
         isDone: false,
-        id: state.count + 1,
+        id: count + 1,
       }
-    ],
-    count: state.count + 1,
-  }))
+    ]
+    setItems(newItems);
+    setCount((count) => count + 1)
+  }
 
-  //Стрелочная ф-ция не теряет контекст, поэтому будем использовать ее.
-  onClickDone = id => {
-    const newItemList = this.state.items.map(item => {
-      const newItem = { ...item };
-      if (item.id === id) {
-        newItem.isDone = !item.isDone;
-      }
-      return newItem;
-    });
+  const onClickDeleteAllTrue = () => {
+    const newItems = items.filter(item => item.isDone === false);
+    setItems(newItems);
+  }
 
-    this.setState({ items: newItemList });
-  };
-
-  onClickDelete = id => this.setState(state => ({ items: state.items.filter(item => item.id !== id)}));
-
-  onClickDeleteAllTrue = id => this.setState(state => ({items: state.items.filter(item => item.isDone === false)}));
-
-  onClickFilterAll = id => {
+  const onClickFilterAll = () => {
 
   }
 
-  onClickFilterFalse = id => {
+  const onClickFilterFalse = () => {
 
   }
 
-  onClickFilterTrue = id => {
+  const onClickFilterTrue = () => {
 
   }
 
-  render() {
     return (
       <div className={styles.wrap}>
         <div className={styles.content}>
           <h1 className={styles.title}>Важные дела:</h1>
           <InputItem
-            onClickAdd={this.onClickAdd}
+            onClickAdd={onClickAdd}
           />
           <ItemList
-            items={this.state.items}
-            onClickDone={this.onClickDone}
-            onClickDelete={this.onClickDelete}
+            items={items}
+            onClickDone={onClickDone}
+            onClickDelete={onClickDelete}
           />
           <Footer
-            count={this.state.items.length}
-            onClickDeleteAllTrue={this.onClickDeleteAllTrue}
-            onClickFilterAll={this.onClickFilterAll}
-            onClickFilterFalse={this.onClickFilterFalse}
-            onClickFilterTrue={this.onClickFilterTrue}
+            count={items.length}
+            onClickDeleteAllTrue={onClickDeleteAllTrue}
+            onClickFilterAll={onClickFilterAll}
+            onClickFilterFalse={onClickFilterFalse}
+            onClickFilterTrue={onClickFilterTrue}
           />
         </div>
       </div>
     )
-  }
 }
 
 export default App;
