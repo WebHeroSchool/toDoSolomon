@@ -18,13 +18,12 @@ class About extends React.Component {
       this.setState({
         repoList: data,
         isLoading: false,
-        fetchFailure: true
       })
     })
       .catch((error) => {
         this.setState({
           isLoading: false,
-          fetchFailure: true,
+          isError: true,
           errorMessage: error
         })
       })
@@ -33,45 +32,70 @@ class About extends React.Component {
       username: 'Solomon7and7',
     }).then(({data}) => {
       this.setState({
-        name: data.name,
-        bio: data.bio,
-        avatar: data.avatar_url,
-        login: data.login
+        infoUser: data
+        // name: infoUser.name,
+        // bio: infoUser.bio,
+        // avatar: infoUser.avatar_url,
+        // login: infoUser.login
       })
     })
       .catch((error) => {
         this.setState({
           isLoading: false,
-          fetchFailure: true,
+          isError: true,
           errorMessage: error
         })
        })
   }
 
   render() {
-    const { isLoading, repoList, avatar, bio, name, login, } = this.state;
+    const { isLoading, repoList, infoUser, errorMessage, isError } = this.state;
 
     return (
       <CardContent>
-          <h1>
-            { isLoading
-            ? <div> <LinearProgress color="secondary" /> <LinearProgress color="secondary" /> </div>
-            : name }</h1>
-        {!isLoading && <ol>
+        {isLoading ?
+          <div> <LinearProgress color="secondary" /> <LinearProgress color="secondary" /> </div>
+         :
           <div>
-            <img src={avatar} alt="avatar" width={'30%'} height={'30%'} />
-            <p>{ bio }</p>
+            <h1> Обо мне</h1>
+            {isError ?
+              'Упс! Что-то пошло не так: ' + errorMessage
+             :
+              <div>
+                <div>
+                  {infoUser === undefined ?
+                    'Информация не найдена'
+                   :
+                    <img
+                      src={infoUser.avatar_url}
+                      alt="Avatar"
+                    />
+                  }
+                  <h2>
+                    {infoUser === undefined ? ' Информация не найдена' : infoUser.name}
+                  </h2>
+                  <p>
+                    {infoUser === undefined ? ' Информация не найдена' : infoUser.bio}
+                  </p>
+                </div>
+
+                <h3>Мои репозитории:</h3>
+                <ol>
+                  {repoList === undefined
+                    ? 'Информация не найдена'
+                    : repoList.map((repo) => (
+                      <li key={repo.id}>
+                        <a target="_blank" rel = "noreferrer" href={repo.html_url}>{repo.name}</a>
+                        <a target="_blank" rel = "noreferrer" href={`https://${infoUser.login}.github.io/${repo.name}/`}> ------> холдинг репозитория </a>
+                      </li>
+                    ))}
+                </ol>
+              </div>
+            }
           </div>
-          <h2> Мои репозитории: </h2>
-          {repoList === undefined
-            ? 'неизвестно'
-            : repoList.map(repo => (<li key={repo.id}>
-            <a target="_blank" rel = "noreferrer" href={repo.html_url}>{repo.name}</a>
-            <a target="_blank" rel = "noreferrer" href={`https://${login}.github.io/${repo.name}/`}> ------> холдинг репозитория </a>
-          </li>))}
-        </ol>}
+        }
       </CardContent>
-  );
+    );
   }
 }
 
