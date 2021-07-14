@@ -23,16 +23,6 @@ class ItemList extends React.Component {
   }
 }
 
-// ItemList.defaultProps = {
-//   items: [
-//     {
-//       value: 'Нет никаких дел',
-//       isDone: true,
-//       id: 0,
-//     }
-//   ]
-// }
-
 ItemList.propTypes = {
   items: PropTypes.array.isRequired,
   onClickDone: PropTypes.func.isRequired,
