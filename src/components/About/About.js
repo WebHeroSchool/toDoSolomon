@@ -69,6 +69,8 @@ class About extends React.Component {
                     <img
                       src={infoUser.avatar_url}
                       alt="Avatar"
+                      width={'30%'}
+                      height={'30%'}
                     />
                   }
                   <h2>
