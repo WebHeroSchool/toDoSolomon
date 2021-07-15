@@ -1,7 +1,7 @@
 import React from 'react';
-import CardContent from '@material-ui/core/CardContent';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import { Octokit } from '@octokit/rest';
+import styles from '../App/App.module.css'
 
 const octokit = new Octokit();
 
@@ -48,12 +48,12 @@ class About extends React.Component {
     const { isLoading, repoList, infoUser, errorMessage, isError } = this.state;
 
     return (
-      <CardContent>
+      <div>
         {isLoading ?
           <div> <LinearProgress color="secondary" /> <LinearProgress color="secondary" /> </div>
          :
           <div>
-            <h1> Обо мне</h1>
+            <h1 className={styles.title}> Обо мне</h1>
             {isError ?
               'Упс! Что-то пошло не так: ' + errorMessage
              :
@@ -82,9 +82,9 @@ class About extends React.Component {
                   {repoList === undefined
                     ? 'Информация не найдена'
                     : repoList.map((repo) => (
-                      <li key={repo.id}>
-                        <a target="_blank" rel = "noreferrer" href={repo.html_url}>{repo.name}</a>
-                        <a target="_blank" rel = "noreferrer" href={`https://Solomon7and7.github.io/${repo.name}/`}> ------> холдинг репозитория </a>
+                      <li className={styles.repoList} key={repo.id}>
+                        <a className={styles.repoLinks} target="_blank" rel = "noreferrer" href={repo.html_url}>{repo.name}</a>
+                        <a className={styles.repoLinks} target="_blank" rel = "noreferrer" href={`https://Solomon7and7.github.io/${repo.name}/`}> холдинг репозитория </a>
                       </li>
                     ))}
                 </ol>
@@ -92,7 +92,7 @@ class About extends React.Component {
             }
           </div>
         }
-      </CardContent>
+      </div>
     );
   }
 }
