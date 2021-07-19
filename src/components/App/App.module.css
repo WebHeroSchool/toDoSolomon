@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
-body {
-  background-color: #cdd4be;
+* {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
 }
 
 .wrap {
@@ -9,31 +9,39 @@ body {
   padding: 3%;
   width: 1000px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 
 .sidebar {
-  width: 11%;
-  padding: 5px;
-  /*box-shadow: -8px -8px 20px #2a333d, 10px 7px 20px #475462;*/
-  border-radius: 20px;
   display: flex;
-  flex-direction: column;
-  margin-right: 10px;
+  flex-direction: row;
+  margin-bottom: 4%;
 }
 
 .content {
   width: 89%;
   padding: 40px;
+  box-shadow: -8px -8px 20px #2a333d, 10px 7px 20px #475462;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
 }
 
-.link {
+.button {
+  font-size: 22px;
+  border: 1px solid #8c8888;
+  border-radius: 20px;
   text-decoration: none;
   cursor: pointer;
   color: #000;
+  background-color: #e8d8ff;
+  padding: 15px 15px;
+  box-shadow: -8px -8px 20px #2a333d, 10px 7px 20px #475462;
+  margin-right: 30px;
+}
+
+.active {
+  background-color: #ff0;
 }
 
 .InputBox {

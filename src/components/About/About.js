@@ -48,53 +48,53 @@ class About extends React.Component {
     const { isLoading, repoList, infoUser, errorMessage, isError } = this.state;
 
     return (
-      <div>
-        {isLoading ?
-          <div> <LinearProgress color="secondary" /> <LinearProgress color="secondary" /> </div>
-         :
-          <div>
-            <h1 className={styles.title}> Обо мне</h1>
-            {isError ?
-              'Упс! Что-то пошло не так: ' + errorMessage
-             :
-              <div>
+        <div>
+          {isLoading ?
+            <div> <LinearProgress color="secondary" /> <LinearProgress color="secondary" /> </div>
+           :
+            <div>
+              <h1 className={styles.title}> Обо мне</h1>
+              {isError ?
+                'Упс! Что-то пошло не так: ' + errorMessage
+               :
                 <div>
-                  {infoUser === undefined ?
-                    'Информация не найдена'
-                   :
-                    <img
-                      src={infoUser.avatar_url}
-                      alt="Avatar"
-                      width={'30%'}
-                      height={'30%'}
-                    />
-                  }
-                  <h2>
-                    {infoUser === undefined ? ' Информация не найдена' : infoUser.name}
-                  </h2>
-                  <p>
-                    {infoUser === undefined ? ' Информация не найдена' : infoUser.bio}
-                  </p>
-                </div>
+                  <div>
+                    {infoUser === undefined ?
+                      'Информация не найдена'
+                     :
+                      <img
+                        src={infoUser.avatar_url}
+                        alt="Avatar"
+                        width={'30%'}
+                        height={'30%'}
+                      />
+                    }
+                    <h2>
+                      {infoUser === undefined ? ' Информация не найдена' : infoUser.name}
+                    </h2>
+                    <p>
+                      {infoUser === undefined ? ' Информация не найдена' : infoUser.bio}
+                    </p>
+                  </div>
 
-                <h3>Мои репозитории:</h3>
-                <ol>
-                  {repoList === undefined
-                    ? 'Информация не найдена'
-                    : repoList.map((repo) => (
-                      <li className={styles.repoList} key={repo.id}>
-                        <a className={styles.repoLinks} target="_blank" rel = "noreferrer" href={repo.html_url}>{repo.name}</a>
-                        <a className={styles.repoLinks} target="_blank" rel = "noreferrer" href={`https://Solomon7and7.github.io/${repo.name}/`}> холдинг репозитория </a>
-                      </li>
-                    ))}
-                </ol>
-              </div>
-            }
-          </div>
-        }
-      </div>
-    );
-  }
+                  <h3>Мои репозитории:</h3>
+                  <ol>
+                    {repoList === undefined
+                      ? 'Информация не найдена'
+                      : repoList.map((repo) => (
+                        <li className={styles.repoList} key={repo.id}>
+                          <a className={styles.repoLinks} target="_blank" rel = "noreferrer" href={repo.html_url}>{repo.name}</a>
+                          <a className={styles.repoLinks} target="_blank" rel = "noreferrer" href={`https://Solomon7and7.github.io/${repo.name}/`}> холдинг репозитория </a>
+                        </li>
+                      ))}
+                  </ol>
+                </div>
+              }
+            </div>
+          }
+        </div>
+      );
+    }
 }
 
 export default About;
