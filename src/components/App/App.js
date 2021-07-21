@@ -26,7 +26,7 @@ const App = () =>
         </div>
       </div>
 
-      <div className={styles.content}>
+      <div>
         <Route path='/' exact component={About} />
         <Route path='/todo' component={Todo} />
       </div>
