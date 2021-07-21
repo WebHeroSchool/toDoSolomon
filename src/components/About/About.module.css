@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+* {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+
+.About {
+  width: 89%;
+  padding: 40px;
+  box-shadow: -8px -8px 20px #2a333d, 10px 7px 20px #475462;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
+
+.Avatar {
+  width: 30%;
+  border-radius: 15px;
+  margin-right: 5%;
+}
+
+.AboutInfo {
+
+}
+
+.title {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 45px;
+  margin: 0 0 10px 0;
+  padding: 0;
+}
+
+.subTitle {
+  width: 70%;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 15px;
+  margin: 0 0 16px 0;
+  padding: 0;
+}
+
+.Contacts {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 4%;
+}
+
+.ContactsMail, .ContactsTel {
+  padding: 9px 26px;
+  position: relative;
+  text-decoration: none;
+  color: #000;
+  filter: grayscale(1);
+  opacity: 0.8;
+}
+
+.ContactsMail:hover, .ContactsTel:hover {
+  filter: grayscale(0);
+  color: #2020ef;
+  opacity: 1;
+}
+
+.ContactsMail:before {
+  position: absolute;
+  content: '';
+  width: 3%;
+  height: 72%;
+  left: 0;
+  background: url("gmail.png") no-repeat;
+  background-size: 100%;
+}
+
+.ContactsTel:before {
+  position: absolute;
+  content: '';
+  width: 3%;
+  height: 72%;
+  left: 0;
+  background: url("telegram.png") no-repeat;
+  background-size: 100%;
+}
+
+.icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.github, .instagram, .vk, .facebook, .linkedin {
+  width: 9%;
+  height: 38px;
+  filter: grayscale(1);
+  opacity: 0.6;
+}
+
+.github:hover, .instagram:hover, .vk:hover, .facebook:hover, .linkedin:hover {
+  filter: grayscale(0);
+  opacity: 1;
+}
+
+.github {
+  background: url("github.png") no-repeat;
+  background-size: 70%;
+}
+
+.instagram {
+  background: url("instagram.png") no-repeat;
+  background-size: 70%;
+}
+
+.vk {
+  background: url("vk.png") no-repeat;
+  background-size: 70%;
+}
+
+.facebook {
+  background: url("facebook.png") no-repeat;
+  background-size: 70%;
+}
+
+.linkedin {
+  background: url("linkedin.png") no-repeat;
+  background-size: 70%;
+}
+
+.content {
+  width: 89%;
+  padding: 40px;
+  box-shadow: -8px -8px 20px #2a333d, 10px 7px 20px #475462;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+li {
+  list-style-type: none;
+}
+
+.repoList {
+  display: flex;
+  justify-content: space-between;
+  width: 48%;
+  border-bottom: 1px outset;
+  padding: 0 0 5px 10px;
+}
+
+.repoLinks {
+  text-decoration: none;
+  color: #000;
+  padding: 1% 7% 1% 5%;
+  display: inline-block;
+}
