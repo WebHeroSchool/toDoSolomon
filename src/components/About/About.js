@@ -76,7 +76,7 @@ class About extends React.Component {
                       </p>
                       <div className={styles.Contacts}>
                         <a className={styles.ContactsMail} href="mailto:solomon7and@gmail.com">solomon7and@gmail.com</a>
-                        <a className={styles.ContactsTel} href="tel:+998909934038">+998 (90) 993-4038</a>
+                        <a className={styles.ContactsTel} href="tel:+998909934038">+998 (90) 993 - 4038</a>
                       </div>
                       <div className={styles.icons}>
                         <a className={styles.github} href="https://github.com/Solomon7and7"> </a>
