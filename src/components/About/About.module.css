@@ -64,7 +64,7 @@
   position: absolute;
   content: '';
   width: 3%;
-  height: 72%;
+  height: 44%;
   left: 0;
   background: url("gmail.png") no-repeat;
   background-size: 100%;
@@ -74,7 +74,7 @@
   position: absolute;
   content: '';
   width: 3%;
-  height: 72%;
+  height: 44%;
   left: 0;
   background: url("telegram.png") no-repeat;
   background-size: 100%;

@@ -83,7 +83,7 @@ class About extends React.Component {
                         <a className={styles.instagram} href="https://www.instagram.com/solomonzaxar/"> </a>
                         <a className={styles.vk} href="https://vk.com/solomon_7and7"> </a>
                         <a className={styles.facebook} href="https://www.facebook.com/profile.php?id=100001036793367"> </a>
-                        <a className={styles.linkedin} href="#"> </a>
+                        <a className={styles.linkedin} href="https://github.com/Solomon7and7"> </a>
                       </div>
                     </div>
 
