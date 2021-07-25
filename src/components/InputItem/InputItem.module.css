@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+* {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+
+.Input {
+  display: flex;
+  align-items: flex-end;
+}
+
+.InputBox {
+  width: 100%;
+  position: relative;
+}
+
+.InputItem{
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 12px;
+  width: 96%;
+}
+
+.Error {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  position: absolute;
+  padding-top: 5px;
+  color: #f62727;
+  width: 157%;
+}
+
+.InputButton{
+  width: 130px;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 6px;
+}
+
+@media (max-width: 300px) {
+  .InputButton {
+    width: 100px;
+  }
+
+}

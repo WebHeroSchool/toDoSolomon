@@ -4,18 +4,59 @@
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
 }
 
+body {
+  background-color: #2d385a;
+}
+
 .wrap {
   margin: auto;
   padding: 3%;
-  width: 1000px;
+  width: 60%;
+  max-width: 1440px;
   display: flex;
   flex-direction: column;
+}
+
+@media (max-width: 1000px) {
+  .wrap {
+    width: 85%;
+  }
+}
+
+@media (max-width: 576px) {
+  .wrap {
+    width: 95%;
+  }
+}
+
+@media (max-width: 426px) {
+  .wrap {
+    width: 98%;
+  }
+}
+
+@media (max-width: 300px) {
+  .wrap {
+    width: 300px;
+  }
 }
 
 .sidebar {
   display: flex;
   flex-direction: row;
   margin-bottom: 4%;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    margin-bottom: 6%;
+  }
+}
+
+@media (max-width: 600px) {
+  .sidebar {
+    margin-bottom: 7%;
+  }
 }
 
 .content {
@@ -31,77 +72,29 @@
 .button {
   font-size: 22px;
   border: 1px solid #8c8888;
-  border-radius: 15px;
+  border-radius: 5px;
   text-decoration: none;
   cursor: pointer;
   color: #000;
-  background-color: #e8d8ff;
-  padding: 15px 15px;
-  box-shadow: -8px -8px 20px #2a333d, 10px 7px 20px #475462;
+  background-color: #dedddd;
+  padding: 11% 15px;
+  box-shadow: -2px -2px 8px #2a333d;
   margin-right: 30px;
 }
 
+@media (max-width: 768px) {
+  .button {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 320px) {
+  .button {
+    font-size: 13px;
+  }
+}
+
 .active {
-  background-color: #f5f539;
-}
-
-.InputBox {
-  width: 100%;
-  position: relative;
-}
-
-.Input {
-  display: flex;
-  align-items: flex-end;
-}
-
-.InputItem{
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  font-size: 12px;
-  width: 96%;
-}
-
-.Error {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  position: absolute;
-  padding-top: 5px;
-  color: #f62727;
-}
-
-.InputButton{
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  font-size: 12px;
-  width: 12%;
-}
-
-.title {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  font-size: 45px;
-  margin: 0 0 10px 0;
-  padding: 0;
-}
-
-.ItemList {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  display: flex;
-  justify-content: space-between;
-  padding: 2% 0 1% 0;
-}
-
-.delete {
-  justify-content: space-between;
-  flex: 100;
-}
-
-.Footer {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.done {
-  color: #8c8888;
-  text-decoration: line-through;
+  background-color: #f8edd1;
 }
 

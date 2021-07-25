@@ -1,14 +1,14 @@
-import React from "react";
+import React from 'react';
 import PropTypes from 'prop-types';
-import Item from "../Item/Item";
-import Divider from '@material-ui/core/Divider';
+import Item from '../Item/Item';
+import styles from "../ItemList/ItemList.module.css";
 
 class ItemList extends React.Component {
   render() {
     const {items, onClickDone, onClickDelete} = this.props
-    return <ul>
+    return <ul className={styles.wrapUl}>
       {items.map(item =>
-        <li key={item.id}>
+        <li className={item.isDone === true ? styles.isDoneLi : styles.isNormalLi} key={item.id}>
           <Item
             value={item.value}
             isDone={item.isDone}
@@ -16,7 +16,6 @@ class ItemList extends React.Component {
             onClickDone={onClickDone}
             onClickDelete={onClickDelete}
           />
-          <Divider />
         </li>
       )}
     </ul>
