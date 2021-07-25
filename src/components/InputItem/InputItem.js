@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types"
-import styles from '../App/App.module.css'
+import styles from '../InputItem/InputItem.module.css'
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
@@ -32,7 +32,7 @@ class InputItem extends React.Component{
           id="standard-basic"
           label="Добавить задание"
           className={styles.InputItem}
-          value={this.state.inputValue}
+          value={this.state.inputValue }
           onChange={event => this.setState({inputValue: event.target.value.toUpperCase()})}
           error={this.state.inputError}
           />
@@ -43,11 +43,6 @@ class InputItem extends React.Component{
           color="primary"
           className={styles.InputButton}
           onClick={this.onButtonClick}
-          // disabled={
-          //   this.state.inputValue.length>0
-          //     ? false
-          //     : true
-          // }
         >
           добавить
         </Button>

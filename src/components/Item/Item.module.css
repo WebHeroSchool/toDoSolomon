@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+* {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+
+.ItemList {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 5px;
+}
+
+.done {
+  color: #8c8888;
+  text-decoration: line-through;
+  padding-left: 5px;
+}
+
+.delete {
+  justify-content: space-between;
+  flex: 100;
+}
+
+@media (max-width: 768px) {
+  .ItemList {
+    text-align: center;
+    padding: 15px;
+  }
+}

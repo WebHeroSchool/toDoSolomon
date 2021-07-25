@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+* {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+
+.title {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 45px;
+  margin: 0 0 10px 0;
+  padding: 0;
+}
+
+@media (max-width: 1000px) {
+  .title {
+    font-size: 35px;
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 25px;
+  }
+}
+
+.TitleInput {
+  border: 1px solid #8c8888;
+  border-radius: 5px;
+  padding: 35px 15px;
+  box-shadow: -2px -2px 8px #2a333d;
+  margin-bottom: 25px;
+  background-color: #f8edd1;
+}
+
+@media (max-width: 768px) {
+  .TitleInput {
+    padding: 25px 15px;
+  }
+}

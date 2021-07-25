@@ -99,7 +99,7 @@ class About extends React.Component {
                             <a className={styles.repoLinks} target="_blank" rel = "noreferrer" href={repo.html_url}>{repo.name}</a>
                             <a className={styles.repoLinks}
                                target="_blank" rel = "noreferrer"
-                               href={repo.name === 'todoSolomon' ? `https://todo-solomon-theta.vercel.app//` : `https://Solomon7and7.github.io/${repo.name}`}>
+                               href={repo.name === 'todoSolomon' ? `https://todo-solomon.vercel.app///` : `https://Solomon7and7.github.io/${repo.name}`}>
                               холдинг репозитория </a>
                           </li>
                         ))}

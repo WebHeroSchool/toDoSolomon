@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import ItemList from "../ItemList/ItemList";
 import InputItem from "../InputItem/InputItem";
 import Footer from "../Footer/Footer";
-import styles from '../App/App.module.css';
+import styles from '../Todo/Todo.module.css';
 
 const Todo = () => {
   const initialState = {
@@ -92,15 +92,17 @@ const Todo = () => {
     return (
       <div>
         <div>
-          <h1 className={styles.title}>Важные дела:</h1>
-          <InputItem
-            onClickAdd={onClickAdd}
-          />
-          <ItemList
-            items={items}
-            onClickDone={onClickDone}
-            onClickDelete={onClickDelete}
-          />
+          <div className={styles.TitleInput}>
+            <h1 className={styles.title}>Важные дела:</h1>
+            <InputItem
+              onClickAdd={onClickAdd}
+            />
+          </div>
+            <ItemList
+              items={items}
+              onClickDone={onClickDone}
+              onClickDelete={onClickDelete}
+            />
           <Footer
             count={items.length}
             onClickDeleteAllTrue={onClickDeleteAllTrue}

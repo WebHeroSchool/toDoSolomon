@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+* {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+
+.wrapUl {
+  width: 100%;
+  text-decoration: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.title {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 45px;
+  margin: 0 0 10px 0;
+  padding: 0;
+}
+
+.isDoneLi {
+  width: 93%;
+  background-color: #dedddd;
+  padding: 1% 0 0 0;
+  border: 1px solid #8c8888;
+  border-radius: 5px;
+  box-shadow: -2px -2px 8px #2a333d;
+  margin-bottom: 13px;
+  transition: width, padding, ease-in-out 1s;
+}
+
+.isNormalLi {
+  width: 100%;
+  background-color: #f8edd1;
+  padding: 2% 0 1% 0;
+  border: 1px solid #8c8888;
+  border-radius: 5px;
+  box-shadow: -2px -2px 8px #2a333d;
+  margin-bottom: 13px;
+  transition: width, padding,1s;
+}

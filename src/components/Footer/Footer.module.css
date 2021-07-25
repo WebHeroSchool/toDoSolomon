@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+* {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+
+.Footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #8c8888;
+  border-radius: 5px;
+  box-shadow: -2px -2px 8px #2a333d;
+  padding: 8px;
+  background-color: #f8edd1;
+}
+
+@media (max-width: 768px) {
+  .Footer {
+    flex-direction: column;
+    padding: 8px;
+  }
+
+  .Count {
+    margin-bottom: 15px;
+  }
+
+  .ButtonGroup {
+    margin-bottom: 8px;
+  }
+
+  .ButtonDelete {
+  }
+}
+
+@media (max-width: 300px) {
+  .ButtonGroup {
+    width: 230px;
+  }
+}
