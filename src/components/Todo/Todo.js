@@ -7,26 +7,26 @@ import styles from '../Todo/Todo.module.css';
 const Todo = () => {
   const initialState = {
     items: [
-      {
-        value: 'Передать в футер кол-во дел которые нужно выполнить!',
-        isDone: true,
-        id: 1,
-      },
-      {
-        value: 'Передать 3 дела в Item!',
-        isDone: false,
-        id: 2,
-      },
-      {
-        value: 'Запушить в репозиторий!',
-        isDone: true,
-        id: 3,
-      },
-      {
-        value: 'Дополнительный!',
-        isDone: false,
-        id: 4,
-      },
+      // {
+      //   value: 'Передать в футер кол-во дел которые нужно выполнить!',
+      //   isDone: true,
+      //   id: 1,
+      // },
+      // {
+      //   value: 'Передать 3 дела в Item!',
+      //   isDone: false,
+      //   id: 2,
+      // },
+      // {
+      //   value: 'Запушить в репозиторий!',
+      //   isDone: true,
+      //   id: 3,
+      // },
+      // {
+      //   value: 'Дополнительный!',
+      //   isDone: false,
+      //   id: 4,
+      // },
     ],
     count: 4,
   };
@@ -103,6 +103,13 @@ const Todo = () => {
               onClickDone={onClickDone}
               onClickDelete={onClickDelete}
             />
+          {items.length === 0
+            ? <div className={styles.board}>
+                <div className={styles.board__img}> </div>
+                <h2 className={styles.board__title}>Вы ещё не добавили ни одной задачи</h2>
+                <p className={styles.board__subtitle}>Сделайте это прямо сейчас!</p>
+              </div>
+            : null}
           <Footer
             count={items.length}
             onClickDeleteAllTrue={onClickDeleteAllTrue}
