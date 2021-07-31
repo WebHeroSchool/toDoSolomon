@@ -28,7 +28,7 @@
   border-radius: 5px;
   padding: 35px 15px;
   box-shadow: -2px -2px 8px #2a333d;
-  margin-bottom: 25px;
+  /*margin-bottom: 25px;*/
   background-color: #f8edd1;
 }
 
@@ -36,4 +36,37 @@
   .TitleInput {
     padding: 25px 15px;
   }
+}
+
+.board {
+  border: 1px solid #8c8888;
+  border-radius: 5px;
+  padding: 15px 15px;
+  box-shadow: -2px -2px 8px #2a333d;
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: #f8edd1 center;
+}
+
+.board__img {
+  width: 267px;
+  height: 200px;
+  background: url("Frame.svg") no-repeat center;
+  background-size: contain;
+}
+
+.board__title {
+  font-size: 18px;
+  padding: 0;
+  margin: 0 0 10px 0;
+}
+
+.board__subtitle {
+  font-size: 14px;
+  padding: 0;
+  margin: 0;
+  opacity: 0.7;
 }
