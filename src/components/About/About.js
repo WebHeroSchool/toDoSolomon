@@ -111,8 +111,8 @@ class About extends React.Component {
                                   classNames({
                                     [styles.language]: true,
                                     [styles.html]: repo.language === 'HTML',
-                                    [styles.js]: repo.language === 'JavaScript',
                                     [styles.css]: repo.language === 'CSS',
+                                    [styles.js]: repo.language === 'JavaScript',
                                   })}>
                                 {repo.language}
                                 </span>
