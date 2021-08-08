@@ -1,6 +1,7 @@
 import React from 'react';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import { Octokit } from '@octokit/rest';
+import classNames from "classnames";
 import styles from '../About/About.module.css'
 
 const octokit = new Octokit();
@@ -15,6 +16,7 @@ class About extends React.Component {
     octokit.repos.listForUser({
       username: 'Solomon7and7',
     }).then(({data}) => {
+      console.log(data)
       this.setState({
         repoList: data,
         isLoading: false,
@@ -41,7 +43,7 @@ class About extends React.Component {
           isError: true,
           errorMessage: error
         })
-       })
+      })
   }
 
   render() {
@@ -68,39 +70,67 @@ class About extends React.Component {
                       />
                     }
                     <div className={styles.AboutInfo}>
-                      <h2 className={styles.title}>
-                        {infoUser === undefined ? ' Информация не найдена' : infoUser.name}
-                      </h2>
-                      <p className={styles.subTitle}>
-                        {infoUser === undefined ? ' Информация не найдена' : infoUser.bio}
-                      </p>
-                      <div className={styles.Contacts}>
-                        <a className={styles.ContactsMail} href="mailto:solomon7and@gmail.com">solomon7and@gmail.com</a>
-                        <a className={styles.ContactsTel} href="tel:+998909934038">+998 (90) 993 - 4038</a>
+                      <div>
+                        <h2 className={styles.title}>
+                          {infoUser === undefined ? ' Информация не найдена' : infoUser.name}
+                        </h2>
+                        <p className={styles.subTitle}>
+                          {infoUser === undefined ? ' Информация не найдена' : infoUser.bio}
+                        </p>
+                        <div className={styles.Contacts}>
+                          <a className={styles.ContactsMail} target="_blank" rel = "noreferrer" href="mailto:solomon7and@gmail.com">solomon7and@gmail.com</a>
+                          <a className={styles.ContactsTel} target="_blank" rel = "noreferrer" href="https://t.me/solomonzaxar">+998 (90) 993 - 4038</a>
+                        </div>
                       </div>
-                      <div className={styles.icons}>
-                        <a className={styles.github} href="https://github.com/Solomon7and7"> </a>
-                        <a className={styles.instagram} href="https://www.instagram.com/solomonzaxar/"> </a>
-                        <a className={styles.vk} href="https://vk.com/solomon_7and7"> </a>
-                        <a className={styles.facebook} href="https://www.facebook.com/profile.php?id=100001036793367"> </a>
-                        <a className={styles.linkedin} href="https://github.com/Solomon7and7"> </a>
+                      <div className={styles.iconsBox}>
+                        <div className={styles.icons}>
+                          <a className={styles.github} target="_blank" rel = "noreferrer" href="https://github.com/Solomon7and7"> </a>
+                          <a className={styles.instagram} target="_blank" rel = "noreferrer" href="https://www.instagram.com/solomonzaxar/"> </a>
+                          <a className={styles.vk} target="_blank" rel = "noreferrer" href="https://vk.com/solomon_7and7"> </a>
+                          <a className={styles.facebook} target="_blank" rel = "noreferrer" href="https://www.facebook.com/profile.php?id=100001036793367"> </a>
+                          <a className={styles.linkedin} target="_blank" rel = "noreferrer" href="https://github.com/Solomon7and7"> </a>
+                        </div>
                       </div>
                     </div>
-
                   </div>
 
                   <div className={styles.content}>
-                    <h3>Мои репозитории:</h3>
+                    <h3>Мои работы:</h3>
                     <ol>
                       {repoList === undefined
                         ? 'Информация не найдена'
                         : repoList.map((repo) => (
                           <li className={styles.repoList} key={repo.id}>
-                            <a className={styles.repoLinks} target="_blank" rel = "noreferrer" href={repo.html_url}>{repo.name}</a>
-                            <a className={styles.repoLinks}
+                            <a className={styles.repoLinks} target="_blank" rel = "noreferrer" href={repo.html_url}>
+                              <span>{repo.name}</span>
+                              <span>
+                                {repo.description}
+                              </span>
+                              <div className={styles.repo__info}>
+                                <span className={
+                                  classNames({
+                                    [styles.language]: true,
+                                    [styles.html]: repo.language === 'HTML',
+                                    [styles.js]: repo.language === 'JavaScript',
+                                    [styles.css]: repo.language === 'CSS',
+                                  })}>
+                                {repo.language}
+                                </span>
+                                <span
+                                  className={styles.star}>{repo.stargazers_count}</span>
+                                <span
+                                  className={styles.fork}>{repo.forks_count}</span>
+                                <span> Updated on {new Date(repo.updated_at).toLocaleString('en-US', {
+                                  day: 'numeric',
+                                  month: 'short',
+                                  year: 'numeric',
+                                })}</span>
+                              </div>
+                            </a>
+                            <a className={styles.repoHold}
                                target="_blank" rel = "noreferrer"
                                href={repo.name === 'todoSolomon' ? `https://todo-solomon.vercel.app///` : `https://Solomon7and7.github.io/${repo.name}`}>
-                              холдинг репозитория </a>
+                              холдинг</a>
                           </li>
                         ))}
                     </ol>
