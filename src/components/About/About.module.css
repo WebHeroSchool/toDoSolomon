@@ -25,21 +25,30 @@
 }
 
 .AboutInfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
 
+.iconsBox {
+  display: flex;
+  flex-direction: column;
+  width: 117px;
+  height: 100%;
 }
 
 .title {
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  font-size: 45px;
+  font-size: 38px;
   margin: 0 0 10px 0;
   padding: 0;
 }
 
 .subTitle {
-  width: 70%;
+  width: 95%;
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   font-size: 15px;
-  margin: 0 0 16px 0;
+  margin: 0 0 10px 0;
   padding: 0;
 }
 
@@ -50,7 +59,7 @@
 }
 
 .ContactsMail, .ContactsTel {
-  padding: 9px 26px;
+  padding: 8px 26px;
   position: relative;
   text-decoration: none;
   color: #000;
@@ -86,14 +95,14 @@
 
 .icons {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: flex-end;
   align-items: flex-end;
 }
 
 .github, .instagram, .vk, .facebook, .linkedin {
-  width: 9%;
-  height: 38px;
+  width: 39px;
+  height: 40px;
   filter: grayscale(1);
   opacity: 0.6;
 }
@@ -105,27 +114,27 @@
 
 .github {
   background: url("github.png") no-repeat;
-  background-size: 70%;
+  background-size: 85%;
 }
 
 .instagram {
   background: url("instagram.png") no-repeat;
-  background-size: 70%;
+  background-size: 85%;
 }
 
 .vk {
   background: url("vk.png") no-repeat;
-  background-size: 70%;
+  background-size: 85%;
 }
 
 .facebook {
   background: url("facebook.png") no-repeat;
-  background-size: 70%;
+  background-size: 85%;
 }
 
 .linkedin {
   background: url("linkedin.png") no-repeat;
-  background-size: 70%;
+  background-size: 85%;
 }
 
 .content {
@@ -144,17 +153,133 @@ li {
   list-style-type: none;
 }
 
+.repo__info {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.language {
+  position: relative;
+  min-width: 80px;
+  padding-left: 22px;
+  margin: 0 16px 0 0;
+}
+
+.html:before, .css:before, .js:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 2px;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+}
+
+.html:before {
+  background: #e34c26;
+}
+
+.css:before {
+  background: #563d7c;
+}
+
+.js:before {
+  background: #ffdc5a;
+}
+
+.star {
+  position: relative;
+  margin: 0 18px 0 0;
+  padding-left: 22px;
+  font-size: 12px;
+  line-height: 0;
+  color: #999999;
+}
+
+.star:before {
+  content: url("Star.svg");
+  position: absolute;
+  left: 2px;
+  bottom: -6px;
+  height: 15px;
+  width: 15px;
+}
+
+.fork {
+  position: relative;
+  padding-left: 22px;
+  margin: 0 15px 0 0;
+  font-size: 12px;
+  line-height: 14px;
+  color: #999999;
+}
+
+.fork:before {
+  content: url("Fork.svg");
+  position: absolute;
+  left: 2px;
+  bottom: 5px;
+  height: 11px;
+  width: 15px;
+}
+
 .repoList {
   display: flex;
   justify-content: space-between;
-  width: 48%;
-  border-bottom: 1px outset;
+  width: 100%;
   padding: 0 0 5px 10px;
+  margin-bottom: 10px;
 }
 
 .repoLinks {
   text-decoration: none;
   color: #000;
-  padding: 1% 7% 1% 5%;
-  display: inline-block;
+  padding: 1% 5% 1% 5%;
+  transform: translate(-4%, 0%);
+  width: 61%;
+  /*height: 60px;*/
+  /*text-align: center;*/
+  /*line-height: 60px;*/
+  transition: .5s;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0,0,0, .5);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  place-items: flex-start;
 }
+
+.repoHold {
+  text-decoration: none;
+  color: #000;
+  padding: 1% 7% 1% 5%;
+  transform: translate(-40%, 0%);
+  width: 7%;
+  height: 60px;
+  text-align: center;
+  line-height: 60px;
+  transition: .5s;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0,0,0, .5);
+}
+
+.repoLinks::before, .repoHold::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to left, #95abec, #bed5f1);
+  z-index: -1;
+  border-radius: 15px;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform .5s ease-in-out;
+}
+.repoLinks:hover::before, .repoHold:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
