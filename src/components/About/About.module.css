@@ -261,6 +261,7 @@ li {
 }
 
 .repoLinks:hover, .repoHold:hover {
-  
+  background-color: #8db7f3;
+  cursor: pointer;
 }
 
