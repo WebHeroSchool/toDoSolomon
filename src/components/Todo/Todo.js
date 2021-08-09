@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import ItemList from "../ItemList/ItemList";
 import InputItem from "../InputItem/InputItem";
 import Footer from "../Footer/Footer";
@@ -7,40 +7,32 @@ import styles from '../Todo/Todo.module.css';
 const Todo = () => {
   const initialState = {
     items: [
-      // {
-      //   value: 'Передать в футер кол-во дел которые нужно выполнить!',
-      //   isDone: true,
-      //   id: 1,
-      // },
-      // {
-      //   value: 'Передать 3 дела в Item!',
-      //   isDone: false,
-      //   id: 2,
-      // },
-      // {
-      //   value: 'Запушить в репозиторий!',
-      //   isDone: true,
-      //   id: 3,
-      // },
-      // {
-      //   value: 'Дополнительный!',
-      //   isDone: false,
-      //   id: 4,
-      // },
+      {
+        value: 'Ознакомиться с todo приложением!',
+        isDone: true,
+        id: 1,
+      },
+      {
+        value: 'Добавить новое задание!',
+        isDone: false,
+        id: 2,
+      },
+      {
+        value: 'Отметить выполненное задание!',
+        isDone: false,
+        id: 3,
+      },
+      {
+        value: 'Удалить все выполненные задания!',
+        isDone: false,
+        id: 4,
+      },
     ],
     count: 4,
   };
 
   const [items, setItems] = useState(initialState.items);
   const [count, setCount] = useState(initialState.count);
-
-  useEffect(() => {
-    console.log('update')
-  });
-
-  useEffect(() => {
-    console.log('mount')
-  }, [items]);
 
   //Стрелочная ф-ция не теряет контекст, поэтому будем использовать ее.
   const onClickDone = (id) => {
@@ -71,6 +63,8 @@ const Todo = () => {
     setItems(newItems);
     setCount((count) => count + 1)
   }
+
+  const getCountUnfulfilled = items.filter(item => item.isDone === false);
 
   const onClickDeleteAllTrue = () => {
     const newItems = items.filter(item => item.isDone === false);
@@ -111,7 +105,7 @@ const Todo = () => {
               </div>
             : null}
           <Footer
-            count={items.length}
+            count={ getCountUnfulfilled.length }
             onClickDeleteAllTrue={onClickDeleteAllTrue}
             onClickFilterAll={onClickFilterAll}
             onClickFilterFalse={onClickFilterFalse}
