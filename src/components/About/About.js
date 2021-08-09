@@ -108,6 +108,9 @@ class About extends React.Component {
                               </span>
                               <div className={styles.repo__info}>
                                 <span className={
+                                  repo.language === null
+                                   ? repo.language = 'CSS'
+                                    :
                                   classNames({
                                     [styles.language]: true,
                                     [styles.html]: repo.language === 'HTML',
