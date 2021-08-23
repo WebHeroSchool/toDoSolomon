@@ -28,13 +28,14 @@
   .ButtonGroup {
     margin-bottom: 8px;
   }
-
-  .ButtonDelete {
-  }
 }
 
 @media (max-width: 300px) {
   .ButtonGroup {
     width: 230px;
   }
+}
+
+.selected {
+  border: solid 1px #841d29;
 }

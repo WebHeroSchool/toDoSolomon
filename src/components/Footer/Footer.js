@@ -4,20 +4,38 @@ import styles from '../Footer/Footer.module.css';
 import Button from '@material-ui/core/Button';
 import DeleteIcon from '@material-ui/icons/Delete';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
+import classNames from "classnames";
 
-const Footer = ({ count, onClickDeleteAllTrue, onClickFilterAll, onClickFilterFalse, onClickFilterTrue }) => (
+const Footer = ({ count, countAll, countDone, onClickDeleteAllTrue, onClickSort, sorting }) => (
   <div className={styles.Footer}>
     <p className={styles.Count}>Осталось выполнить: {count}</p>
     <ButtonGroup
       className={styles.ButtonGroup}
       variant="text"
       color="default">
-      <Button onClick={onClickFilterAll}>Все</Button>
-      <Button onClick={onClickFilterFalse}>Активные</Button>
-      <Button onClick={onClickFilterTrue}>Выполненные</Button>
+      <Button
+        className={classNames({
+        [styles.selected]: sorting === 'Все'
+      })}
+        onClick={() => onClickSort('Все')}>
+        Все: {countAll}
+      </Button>
+      <Button
+        className={classNames({
+          [styles.selected]: sorting === 'Активные'
+        })}
+        onClick={() => onClickSort('Активные')}>
+        Активные: {count}
+      </Button>
+      <Button
+        className={classNames({
+          [styles.selected]: sorting === 'Выполненные'
+        })}
+        onClick={() => onClickSort('Выполненные')}>
+        Выполненные: {countDone}
+      </Button>
     </ButtonGroup>
     <Button
-      className={styles.ButtonDelete}
       color="default"
       startIcon={<DeleteIcon />}
       onClick={onClickDeleteAllTrue}
