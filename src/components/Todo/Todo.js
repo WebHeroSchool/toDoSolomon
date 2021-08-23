@@ -29,10 +29,12 @@ const Todo = () => {
       },
     ],
     count: 4,
+    sortTask: 'Все',
   };
 
   const [items, setItems] = useState(initialState.items);
   const [count, setCount] = useState(initialState.count);
+  const [sortTask, setSort] = useState(initialState.sortTask);
 
   //Стрелочная ф-ция не теряет контекст, поэтому будем использовать ее.
   const onClickDone = (id) => {
@@ -64,24 +66,31 @@ const Todo = () => {
     setCount((count) => count + 1)
   }
 
-  const getCountUnfulfilled = items.filter(item => item.isDone === false);
-
   const onClickDeleteAllTrue = () => {
     const newItems = items.filter(item => item.isDone === false);
     setItems(newItems);
   }
 
-  const onClickFilterAll = () => {
+  const onClickSort = sorting => setSort(sorting);
 
+  let sortingTasks;
+  switch (sortTask) {
+    case 'Выполненные':
+      sortingTasks = items.filter(item => item.isDone);
+      break;
+    case 'Активные':
+      sortingTasks = items.filter(item => !item.isDone);
+      break;
+    case 'Все':
+      sortingTasks = items;
+      break;
+    default :
+      sortingTasks = items;
   }
 
-  const onClickFilterFalse = () => {
-
-  }
-
-  const onClickFilterTrue = () => {
-
-  }
+  const allItems = items;
+  const getCountUnfulfilled = items.filter(item => item.isDone === false);
+  const doneItems = items.filter(item => item.isDone === true)
 
     return (
       <div>
@@ -96,6 +105,8 @@ const Todo = () => {
               items={items}
               onClickDone={onClickDone}
               onClickDelete={onClickDelete}
+              sort={sortingTasks}
+              sortValue={sortTask}
             />
           {items.length === 0
             ? <div className={styles.board}>
@@ -106,10 +117,12 @@ const Todo = () => {
             : null}
           <Footer
             count={ getCountUnfulfilled.length }
+            countAll={ allItems.length }
+            countDone={ doneItems.length }
+            sorting={sortTask}
+            onClickSort={onClickSort}
             onClickDeleteAllTrue={onClickDeleteAllTrue}
-            onClickFilterAll={onClickFilterAll}
-            onClickFilterFalse={onClickFilterFalse}
-            onClickFilterTrue={onClickFilterTrue}
+            onClickFilterAll={onClickSort}
           />
         </div>
       </div>

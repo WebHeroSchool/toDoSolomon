@@ -5,9 +5,9 @@ import styles from "../ItemList/ItemList.module.css";
 
 class ItemList extends React.Component {
   render() {
-    const {items, onClickDone, onClickDelete} = this.props
+    const {sort, onClickDone, onClickDelete} = this.props
     return <ul className={styles.wrapUl}>
-      {items.map(item =>
+      {sort.map(item =>
         <li className={item.isDone === true ? styles.isDoneLi : styles.isNormalLi} key={item.id}>
           <Item
             value={item.value}

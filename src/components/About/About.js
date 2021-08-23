@@ -79,7 +79,7 @@ class About extends React.Component {
                         </p>
                         <div className={styles.Contacts}>
                           <a className={styles.ContactsMail} target="_blank" rel = "noreferrer" href="mailto:solomon7and@gmail.com">solomon7and@gmail.com</a>
-                          <a className={styles.ContactsTel} target="_blank" rel = "noreferrer" href="https://t.me/solomonzaxar">+998 (90) 993 - 4038</a>
+                          <a className={styles.ContactsTel} target="_blank" rel = "noreferrer" href="https://t.me/solomonzaxar">+7 (905) 677 62 84</a>
                         </div>
                       </div>
                       <div className={styles.iconsBox}>
