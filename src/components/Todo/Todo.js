@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import ItemList from "../ItemList/ItemList";
 import InputItem from "../InputItem/InputItem";
 import Footer from "../Footer/Footer";
@@ -6,35 +6,29 @@ import styles from '../Todo/Todo.module.css';
 
 const Todo = () => {
   const initialState = {
-    items: [
-      {
-        value: 'Ознакомиться с todo приложением!',
-        isDone: true,
-        id: 1,
-      },
-      {
-        value: 'Добавить новое задание!',
-        isDone: false,
-        id: 2,
-      },
-      {
-        value: 'Отметить выполненное задание!',
-        isDone: false,
-        id: 3,
-      },
-      {
-        value: 'Удалить все выполненные задания!',
-        isDone: false,
-        id: 4,
-      },
-    ],
-    count: 4,
+    items:
+      JSON.parse(localStorage.getItem('editedList') ||
+      '[{"value": "Ознакомиться с todo приложением!", "isDone": true, "id": 1},' +
+      '{"value": "Добавить новое задание!", "isDone": false, "id": 2},' +
+      '{"value": "Отметить выполненное задание!", "isDone": false, "id": 3},' +
+      '{"value": "Удалить все выполненные задания!", "isDone": false, "id": 4}]'),
+    count: JSON.parse(localStorage.getItem('count')) || 4,
     sortTask: 'Все',
   };
 
   const [items, setItems] = useState(initialState.items);
   const [count, setCount] = useState(initialState.count);
   const [sortTask, setSort] = useState(initialState.sortTask);
+
+  const saveToLocalStorage = (items, count) => {
+    let addToLocal = JSON.stringify(items);
+    localStorage.setItem("editedList", addToLocal);
+    localStorage.setItem("count", JSON.stringify(count));
+  };
+
+  useEffect(() => {
+    saveToLocalStorage(items, count);
+  });
 
   //Стрелочная ф-ция не теряет контекст, поэтому будем использовать ее.
   const onClickDone = (id) => {
