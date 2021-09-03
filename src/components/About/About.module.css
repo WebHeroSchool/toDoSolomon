@@ -265,3 +265,40 @@ li {
   cursor: pointer;
 }
 
+.arrows {
+  display: flex;
+  justify-content: space-between;
+  width: 50px;
+}
+
+.arrows button {
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: opacity .5s;
+}
+
+.arrows button:hover {
+  opacity: 0.8;
+}
+
+.arrows button:disabled {
+  opacity: 0.2;
+  cursor: default;
+}
+
+.arrow_left {
+  transform: rotate(180deg);
+  width: 30px;
+}
+
+.arrow_right {
+  width: 30px;
+}
+
+.repoHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
