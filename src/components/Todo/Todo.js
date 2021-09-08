@@ -3,6 +3,8 @@ import ItemList from "../ItemList/ItemList";
 import InputItem from "../InputItem/InputItem";
 import Footer from "../Footer/Footer";
 import styles from '../Todo/Todo.module.css';
+import { DragDropContext } from 'react-beautiful-dnd';
+
 
 const Todo = () => {
   const initialState = {
@@ -29,6 +31,17 @@ const Todo = () => {
   useEffect(() => {
     saveToLocalStorage(items, count);
   });
+
+  const onDragEnd = result => {
+    const { source, destination } = result;
+    if (!destination) return;
+
+    const newItems = [...items];
+
+    const [removed] = newItems.splice(source.index, 1);
+    newItems.splice(destination.index, 0, removed);
+    setItems(newItems)
+  };
 
   //Стрелочная ф-ция не теряет контекст, поэтому будем использовать ее.
   const onClickDone = (id) => {
@@ -88,7 +101,9 @@ const Todo = () => {
 
     return (
       <div>
+      
         <div>
+        <DragDropContext onDragEnd={onDragEnd}>
           <div className={styles.TitleInput}>
             <h1 className={styles.title}>Важные дела:</h1>
             <InputItem
@@ -102,6 +117,7 @@ const Todo = () => {
               sort={sortingTasks}
               sortValue={sortTask}
             />
+          
           {items.length === 0
             ? <div className={styles.board}>
                 <div className={styles.board__img}> </div>
@@ -118,7 +134,9 @@ const Todo = () => {
             onClickDeleteAllTrue={onClickDeleteAllTrue}
             onClickFilterAll={onClickSort}
           />
+          </DragDropContext>
         </div>
+        
       </div>
     )
 }

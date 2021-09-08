@@ -9,8 +9,12 @@ import IconButton from '@material-ui/core/IconButton';
 class Item extends React.Component {
 
   render() {
-    const {value, isDone, onClickDone, id, onClickDelete} = this.props;
-    return <span className={
+    const {value, isDone, onClickDone, id, onClickDelete, provided, innerRef} = this.props;
+    return( <div className={styles.line}
+    ref={innerRef}
+    {...provided.draggableProps}
+    {...provided.dragHandleProps}>
+      <span className={
       classNames({
         [styles.ItemList]: true,
         [styles.done]: isDone
@@ -31,7 +35,8 @@ class Item extends React.Component {
   >
     <DeleteIcon />
   </IconButton>
-</span>}
+</span>
+</div>)}
 }
 
 Item.propTypes = {
