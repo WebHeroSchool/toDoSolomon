@@ -10,6 +10,8 @@ class InputItem extends React.Component{
     inputError: false,
   };
 
+  
+
   onButtonClick = () => {
     this.setState({
       inputValue: '',
