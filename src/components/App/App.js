@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 import Todo from '../Todo/Todo';
 import About from '../About/About';
 import styles from "./App.module.css";
+import whs from "./whs.png";
 
 const App = () =>
   (<Router>
@@ -30,7 +31,12 @@ const App = () =>
         <Route path='/' exact component={About} />
         <Route path='/todo' component={Todo} />
       </div>
-
+    </div>
+    <div className={styles.link}>
+      <a className={styles.link__item} href='https://webheroschool.ru/' target="_blank" rel = "noreferrer">
+        Выполнено в
+        <img className={styles.item__img} src={whs} alt='WebHeroSchool' width='80'/>
+      </a>
     </div>
   </Router>);
 
