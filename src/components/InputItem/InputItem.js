@@ -8,6 +8,7 @@ class InputItem extends React.Component{
   state = {
     inputValue: '',
     inputError: false,
+    errorText: '',
   };
 
   onButtonClick = () => {
@@ -16,11 +17,27 @@ class InputItem extends React.Component{
       inputError: false
     });
 
-    this.state.inputValue !== ''
-      ? this.props.onClickAdd(this.state.inputValue)
-      : this.setState({
+    const {items, onClickAdd} = this.props;
+    let inputError = false;
+
+    items.forEach(item => {
+      if(item.value === this.state.inputValue) {
+          inputError = true
+      }
+    });
+
+    if(this.state.inputValue === '' || inputError) {
+      this.setState({
         inputError: true,
+        errorText: inputError ? 'Дело уже в списке!' : 'Необходимо ввести текст'
+      })
+    } else{
+      this.setState({
+          inputValue: '',
+          inputError: false
       });
+      onClickAdd(this.state.inputValue)
+  }
   }
 
   render() {
@@ -36,7 +53,7 @@ class InputItem extends React.Component{
           onChange={event => this.setState({inputValue: event.target.value})}
           error={this.state.inputError}
           />
-          {(this.state.inputError) && <div className={styles.Error}>Необходимо ввести текст</div>}
+          {(this.state.inputError) && <div className={styles.Error}>{this.state.errorText}</div>}
         </div>
         <Button
           variant="outlined"
