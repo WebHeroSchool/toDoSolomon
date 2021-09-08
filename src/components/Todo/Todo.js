@@ -92,6 +92,7 @@ const Todo = () => {
           <div className={styles.TitleInput}>
             <h1 className={styles.title}>Важные дела:</h1>
             <InputItem
+              items={items}
               onClickAdd={onClickAdd}
             />
           </div>
