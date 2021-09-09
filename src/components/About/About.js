@@ -37,7 +37,6 @@ class About extends React.Component {
     octokit.repos.listForUser({
       username: 'Solomon7and7',
     }).then(({data}) => {
-      console.log(data)
       this.setState({
         repoList: data,
         isLoading: false,
