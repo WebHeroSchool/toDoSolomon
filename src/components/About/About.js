@@ -91,7 +91,7 @@ class About extends React.Component {
                       />
                     }
                     <div className={styles.AboutInfo}>
-                      <div>
+                      <div className={styles.AboutInfo__box}>
                         <h2 className={styles.title}>
                           {infoUser === undefined ? ' Информация не найдена' : infoUser.name}
                         </h2>
@@ -121,20 +121,20 @@ class About extends React.Component {
                         <h3>Мои работы на github.com:</h3>
                         <div className={styles.arrows}>
                           <button onClick={this.prevPage} disabled={firstRepo < 4}>
-                              <img className={styles.arrow_left} src={arrow} alt='scroll-left'/>
+                              <img className={styles.arrow__left} src={arrow} alt='scroll-left'/>
                           </button>
                           <button onClick={this.nextPage} disabled={repoList.length <= lastRepo}>
-                            <img className={styles.arrow_right} src={arrow} alt='scroll-right'/>
+                            <img className={styles.arrow__right} src={arrow} alt='scroll-right'/>
                           </button>
                          </div>
                       </div>
-                      <ol>
+                      <ol className={styles.repo}>
                         {repoList === undefined
                           ? 'Информация не найдена'
                           : repoListPage.map((repo) => (
                             <li className={styles.repoList} key={repo.id}>
                               <a className={styles.repoLinks} target="_blank" rel = "noreferrer" href={repo.html_url}>
-                                <span>{repo.name}</span>
+                                <span className={styles.repoName}>{repo.name}</span>
                                 <span>
                                   {repo.description}
                                 </span>

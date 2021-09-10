@@ -37,7 +37,8 @@ body {
 
 @media (max-width: 300px) {
   .wrap {
-    width: 300px;
+    width: 320px;
+    min-width: 320px;
   }
 }
 
