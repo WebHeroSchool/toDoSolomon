@@ -490,11 +490,18 @@ li {
     }
 
     .repoHold {
-      display: none;
+      /* display: none; */
+      /* padding: 6% 7% 1% 1%;
+      height: 29px;
+      line-height: 100%; */
+      width: 31px;
+      padding: 0px 16px 0 5px;
+      height: 20px;
+      line-height: 20px;
     }
 
     .repoLinks {
-      width: 100%;
+      width: 75%;
       padding: 12px;
     }
 
@@ -502,8 +509,32 @@ li {
       margin-bottom: 5px;
     }
 
+    .repoList {
+      width: 100%;
+    }
+
     .css:before, .js:before {
       bottom: 0;
+    }
+
+    .language {
+      min-width: 43px;
+      padding-left: 20px;
+    }
+
+    .star {
+      margin: 0;
+    }
+  }
+
+  @media (max-width: 450px) { 
+    .repoLinks {
+      width: 71%;
+      padding: 12px;
+    }
+
+    .repoList {
+      width: 104%;
     }
   }
 
