@@ -2,8 +2,8 @@ import React from 'react';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import { Octokit } from '@octokit/rest';
 import classNames from "classnames";
-import styles from '../About/About.module.css'
-import arrow from '../About/arrow.png'
+import styles from '../About/About.module.css';
+import arrow from '../About/arrow.png';
 
 const octokit = new Octokit();
 
