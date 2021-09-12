@@ -12,8 +12,7 @@ class About extends React.Component {
     isLoading: true,
     repoList: [],
     infoAboutUser: [],
-    isErrorUser: false,
-    isErrorRepo: false,
+    isError: false,
     errorMessage: '',
     firstRepo: 0,
     lastRepo: 4
@@ -165,7 +164,7 @@ class About extends React.Component {
                               <a className={styles.repoHold}
                                 target="_blank" rel = "noreferrer"
                                 href={repo.name === 'todoSolomon' ? `https://todo-solomon-three.vercel.app/` : `https://Solomon7and7.github.io/${repo.name}`}>
-                                холдинг</a>
+                                хостинг</a>
                             </li>
                           ))}
                       </ol>
